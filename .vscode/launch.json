@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+          "name": "Debug main process",
+          "type": "node",
+          "request": "launch",
+          "program": "${workspaceRoot}/src/main/main.ts",
+          "stopOnEntry": false,
+          "args": ["--remote-debugging-port=9999"],
+          "cwd": "${workspaceRoot}",
+          "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
+          "runtimeArgs": [
+              "--enable-logging"
+          ],
+          "env": {},
+          "sourceMaps": true,
+          "outFiles": [
+              "${workspaceRoot}/app/dist/main/main.js"
+          ],
+          "internalConsoleOptions": "openOnSessionStart",
+          "console": "integratedTerminal",
+          // "preLaunchTask": "build",
+          "port":9999
+   
+      }, 
+      // {
+      //   "name": "Debug Main Process",
+      //   "type": "node",
+      //   "request": "launch",
+      //   "cwd": "${workspaceRoot}",
+      //   "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      //   "windows": {
+      //     "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      //   },
+      //   "protocol": "inspector",
+      //   "args" : ["./app/dist/main/main", "--remote-debugging-port=9999"],
+      //   "outputCapture": "std",
+      //   "timeout": 10000,
+      //   "port":9999
+      // }
+    ]
+  }
