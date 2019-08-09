@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Menu, Loading, Toast, Gotop, Updator } from '@/components/layouts';
+import { Header,  Loading, Toast, Updator } from '@/components/layouts';
 import { connect } from 'dva';
 import { withRouter } from 'umi';
 import { GlobalModelState } from '@/models/global';
@@ -54,7 +54,6 @@ export default class BaseLayout extends React.Component<IProps, any> {
 		const { isResizeToMobile, routerName } = this.state;
 		return (
 	    	<div>
-	    		<Gotop />
 	    		<Header />
 	    		<ReactCSSTransitionGroup 
 	    			transitionName={{ enter:'fadeIn', leave:'fadeOut' }} 
@@ -76,7 +75,6 @@ export default class BaseLayout extends React.Component<IProps, any> {
                       leave: 'bounceOutLeft',
                     }}
                 >
-	    			{iShowMenu && isResizeToMobile && <Menu routerName={this.state.routerName}/>}
 	    		</ReactCSSTransitionGroup>
 	    		<div className="router-view">
 	                {this.props.children}

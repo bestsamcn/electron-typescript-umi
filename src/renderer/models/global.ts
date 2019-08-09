@@ -1,5 +1,5 @@
 import { ResponseBody } from '@/utils/request';
-import { getCategoryList } from '@/services';
+import {  login } from '@/services';
 import $$ from '@/utils';
 import { ipcRenderer } from 'electron';
 let toastTimer:any = null;
@@ -9,13 +9,7 @@ export interface GlobalModelState {
     msg: string,
     isLogin:boolean,
     isLoading:boolean,
-    isMobile:boolean,
-    iShowMenu:boolean,
-    clientHeight:number,
-    hotWord:any,
-    hotWordList:any[],
-    articleParams:any,
-    isUpdateAvailable:boolean
+    
 }
 
 export default {
@@ -23,24 +17,11 @@ export default {
         token:'',
 	    isLogin:false,
 	    isLoading:false,
-	    isMobile:false,
 	    msg:'',
-	    clientHeight:0,
-	    iShowMenu:false,
-	    hotWord:{
-	        isFromHotWord:false,
-	        name:''
-	    },
-	    hotWordList:[],
-	    articleParams:{category: "前端", tag: "", isFromHome: true},
-	    isUpdateAvailable:false,
-	    updateError:false,
-	    updateProgress:0
 
     },
     subscriptions: {
         init({ dispatch, history }:any) {
-            dispatch({ type: 'getCategoryList', params: {} });
             dispatch({ type: 'setMobile', params: {} });
             dispatch({ type: 'checkUpdate' });
         },
@@ -94,26 +75,6 @@ export default {
             }, 2000);
             yield put({type:'setState', payload:{msg}});
         },
-
-
-        *setMobile({ params }:{params:any}, { put, call }:any) {
-            yield put({type:'setState', payload:{isMobile:$$.isMobile()}})
-        },
-
-        //切换移动端菜单状态
-        *setToggleMenu({ params }:{params:any}, { put, call, select }:any){
-            let { iShowMenu } = yield select((state:any)=>state.global);
-            yield put({type:'setState', payload:{iShowMenu:!iShowMenu}});
-        },
-
-        //设置文章参数
-        *setArticleParams({ params }:{params:any}, { put, call, select }:any){
-            let { category, tag, isFromHome } = params;
-            yield put({type:'setState', payload:{articleParams:{category, tag, isFromHome}}});
-            params.callback && params.callback();
-        }
-
-
     },
     reducers: {
         setState(state: GlobalModelState, { payload }:any): GlobalModelState {
