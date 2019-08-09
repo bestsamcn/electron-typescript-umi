@@ -7,5 +7,5 @@ rules:
     eofline: true
     no-console: false
     no-construct: true
-    no-debugger: true
+    no-debugger: false 
     no-reference: true

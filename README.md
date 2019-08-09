@@ -1,7 +1,7 @@
-# electron-demo
+# electron-typescript-umi
 
 ## 简介
-
+electron-typescript-umi
 
 ### 环境
 
@@ -32,7 +32,7 @@
 	```
 	npm run start:electron
 	```
-
+或者可以直接使用VSCode启动调试启动，第一次不行，就再启动一次。。。。
 ### 打包
 ```
 npm run pack

@@ -1,7 +1,7 @@
 {
-  "name": "electron-demo",
+  "name": "electron-typescript-umi",
   "version": "1.0.4",
-  "description": "electron-demo",
+  "description": "electron-typescript-umi",
   "main": "dist/main/main.js",
   "author": {
     "name": "huangzhensheng"
