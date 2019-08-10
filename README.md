@@ -1,7 +1,7 @@
 # electron-typescript-umi
 
 ## 简介
-electron-typescript-umi
+electron-typescript-umi是一个支持typescript和vscode debug的electron基础项目，结合了umi+dva的路由数据流开发方式，提供了最便捷的electron开发体验。
 
 ### 环境
 
@@ -28,11 +28,21 @@ electron-typescript-umi
 	```
 	npm run dev
 	```
+	或者在VSCode中`运行任务-develop`
 2. 启动electron开发环境
 	```
-	npm run start:electron
+	npm run electron
 	```
-或者可以直接使用VSCode启动调试启动，第一次不行，就再启动一次。。。。
+   或者在VSCode中`启动调试F5`
+3. 主线程可以在VSCode中调试，渲染线程还是通过`developer tools`调试吧
+
+
+单独运行web项目，需要先把electron的相关代码移除，在执行
+```
+npm run start:umi
+```
+
+
 ### 打包
 ```
 npm run pack

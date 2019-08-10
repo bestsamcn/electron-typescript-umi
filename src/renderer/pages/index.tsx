@@ -28,13 +28,15 @@ export default class Home extends Base<IProps, {}> {
         // super.componentDidMount();
    
     }
-
+    onaClick(){
+        console.log('clicks')
+    }
     render(){
     	let { isMore } = this.props;
     	let { isMobile } = this.props.global;
         return (
             <div className={style["home"]}>
-                 SomeList
+                 <a onClick={this.onaClick.bind(this)}>SomeList</a>
                 <Footer />
             </div>
         )

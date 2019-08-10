@@ -20,7 +20,7 @@ const config: IConfig = {
 					webpackChunkName: true,
 				},
 				// dynamicImport:false,
-				title: 'electron-blog',
+				title: 'electron-typescript-umi',
 				dll: true,
 				locale: {
 					enable: false,
@@ -37,8 +37,8 @@ const config: IConfig = {
 		let isExternal: boolean | string = false;
 		const load = ['electron', 'fs', 'path', 'os', 'url', 'child_process'];
 
-		//浏览器预览会报错require not defined
-		if (load.includes(request)) {
+		//浏览器预览会报错require not defined,通过设置BROWSER阻止执行以下代码
+		if (process.env.BROWSER!='chrome' && load.includes(request)) {
 			isExternal = `require("${request}")`;
 		}
 
@@ -59,5 +59,4 @@ const config: IConfig = {
 			.loader(require.resolve('less-loader'));
 	},
 };
-
 export default config;

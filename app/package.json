@@ -4,7 +4,7 @@
   "description": "electron-typescript-umi",
   "main": "dist/main/main.js",
   "author": {
-    "name": "huangzhensheng"
+    "name": "bestsam"
   },
   "dependencies": {
     "electron-config": "^1.0.0",

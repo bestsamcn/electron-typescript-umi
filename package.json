@@ -4,15 +4,15 @@
   "description": "electron-typescript-umi",
   "name": "electron-typescript-umi",
   "scripts": {
-    "start:umi": "set APP_ROOT=src/renderer && umi dev",
-    "build:umi": "set APP_ROOT=src/renderer && umi build",
+    "start:umi": "set PORT=8080&&set BROWSER=chrome&&set APP_ROOT=src/renderer&& umi dev",
+    "build:umi": "set APP_ROOT=src/renderer&& umi build",
     "test": "umi test",
     "lint:es": "eslint --ext .js src mock tests",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "start:electron": "set ELECTRON_ENABLE_LOGGING=1 && nodemon --watch * --exec electron app/dist/main/main --enable-logging",
+    "electron": "set ELECTRON_ENABLE_LOGGING=1&& nodemon --watch * --exec electron app/dist/main/main --enable-logging",
     "dev": "concurrently \"npm run dev:render\" \"npm run dev:main\"",
-    "dev:main": "set ESLINT=none&& set BROWSER=none&& set COMPRESS=none&& set PROGRESS=none&& roadhog build -w",
-    "dev:render": "set APP_ROOT=src/renderer&& set BROWSER=none&& set ESLINT=none&& umi dev",
+    "dev:main": "set ESLINT=none&&set BROWSER=none&& set COMPRESS=none&& set PROGRESS=none&& roadhog build -w",
+    "dev:render": "set PORT=8080&& set APP_ROOT=src/renderer&& set BROWSER=none&& set ESLINT=none&& umi dev",
     "build": "npm run build:main && npm run build:renderer",
     "build:main": "set ESLINT=none&& roadhog build",
     "build:renderer": "set APP_ROOT=src/renderer&& set ESLINT=none&& umi build",
@@ -20,7 +20,6 @@
     "pack:dir": "npm run build && npm run rebuild && electron-builder --dir",
     "pack:dirOnly": "electron-builder --dir",
     "rebuild": "electron-rebuild -m ./app",
-    "gulp": "gulp -f ./gulp.config.js",
     "push": "git add . && git commit -m \"daily\" && git push origin master"
   },
   "nodemonConfig": {

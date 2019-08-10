@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
       {
-          "name": "Debug main process",
+          "name": "Main",
           "type": "node",
           "request": "launch",
           "program": "${workspaceRoot}/src/main/main.ts",
@@ -14,7 +14,15 @@
           "outFiles": [
               "${workspaceRoot}/app/dist/main/main.js"
           ],
-          "preLaunchTask": "develop",
-      }
-    ]
+          // "preLaunchTask": "develop",
+      },
+      // {
+      //   "type": "chrome",
+      //   "request": "launch",
+      //   "name": "Renderer",
+      //   "url": "http://localhost:8080",
+      //   "webRoot": "${workspaceFolder}/src/renderer"
+      // }
+    ],
+   
   }
